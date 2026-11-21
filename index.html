@@ -168,8 +168,8 @@ html.js .reveal.in { opacity:1; transform:none; }
     <a class="nl" href="#estimator">06 Estimator</a>
     <span class="spacer"></span>
     <div class="cur-toggle">
-      <button id="btn-usd" class="on">$ USD</button>
-      <button id="btn-egp">L.E. EGP</button>
+      <button id="btn-usd">$ USD</button>
+      <button id="btn-egp" class="on">L.E. EGP</button>
     </div>
   </nav>
 
@@ -512,8 +512,8 @@ html.js .reveal.in { opacity:1; transform:none; }
     <a class="nl" href="#ar-estimator">06 الحاسبة</a>
     <span class="spacer"></span>
     <div class="cur-toggle">
-      <button id="ar-btn-usd" class="on">$ دولار</button>
-      <button id="ar-btn-egp">ج.م EGP</button>
+      <button id="ar-btn-usd">$ دولار</button>
+      <button id="ar-btn-egp" class="on">ج.م EGP</button>
     </div>
   </nav>
 
@@ -841,7 +841,7 @@ html.js .reveal.in { opacity:1; transform:none; }
 (function(){
   var ENROOT = document.getElementById('doc-en');
   var params = new URLSearchParams(location.search);
-  var cur = params.get('cur') === 'egp' ? 'egp' : 'usd';
+  var cur = params.get('cur') === 'usd' ? 'usd' : 'egp';
   var btnUsd = document.getElementById('btn-usd');
   var btnEgp = document.getElementById('btn-egp');
   function setCur(c) {
@@ -984,7 +984,7 @@ html.js .reveal.in { opacity:1; transform:none; }
 (function(){
   var ARROOT = document.getElementById('doc-ar');
   var params = new URLSearchParams(location.search);
-  var cur = params.get('cur') === 'egp' ? 'egp' : 'usd';
+  var cur = params.get('cur') === 'usd' ? 'usd' : 'egp';
   var btnUsd = document.getElementById('ar-btn-usd');
   var btnEgp = document.getElementById('ar-btn-egp');
   function setCur(c) {
