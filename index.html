@@ -923,10 +923,11 @@ html.js .reveal.in { opacity:1; transform:none; }
     } else {
       var voice = document.getElementById('est-voice').value;
       var mins = parseFloat(document.getElementById('est-mins').value) || 0;
+      var billed = Math.max(1, mins);
       var rate = RATES[voice][cur];
-      rec = rate * mins;
+      rec = rate * billed;
       recB = rec;
-      rows.push(['Recording fee · ' + fmt(rate) + ' × ' + mins + ' min', [rec, recB]]);
+      rows.push(['Recording fee · ' + fmt(rate) + ' × ' + billed + ' min' + (mins < 1 ? ' · billed as 1 min minimum' : ''), [rec, recB]]);
     }
     if (licPct > 0) rows.push(['Usage license · +' + licPct + '%', [rec * licPct / 100, recB * licPct / 100]]);
     total = rec + (licPct > 0 ? rec * licPct / 100 : 0);
@@ -1066,10 +1067,11 @@ html.js .reveal.in { opacity:1; transform:none; }
     } else {
       var voice = document.getElementById('ar-est-voice').value;
       var mins = parseFloat(document.getElementById('ar-est-mins').value) || 0;
+      var billed = Math.max(1, mins);
       var rate = RATES[voice][cur];
-      rec = rate * mins;
+      rec = rate * billed;
       recB = rec;
-      rows.push(['أجر التسجيل · ' + fmt(rate) + ' × ' + mins + ' دقيقة', [rec, recB]]);
+      rows.push(['أجر التسجيل · ' + fmt(rate) + ' × ' + billed + ' دقيقة' + (mins < 1 ? ' · تُحتسب دقيقة كاملة كحد أدنى' : ''), [rec, recB]]);
     }
     if (licPct > 0) rows.push(['ترخيص الاستخدام · +' + licPct + '%', [rec * licPct / 100, recB * licPct / 100]]);
     total = rec + (licPct > 0 ? rec * licPct / 100 : 0);
