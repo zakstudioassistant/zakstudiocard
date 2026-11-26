@@ -19,19 +19,27 @@ html { scroll-behavior:smooth; }
 body { background:#06070c; color:#fff; font-family:'KMR Melange Grotesk', 'Segoe UI', Tahoma, -apple-system, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing:antialiased; }
 .page {
   position:relative; margin:0 auto; max-width:1080px; padding:48px 24px 40px;
-  background-color:#06070c;
-  background-image:
-    radial-gradient(1.4px 1.4px at 22px 34px, rgba(255,255,255,.85) 50%, transparent 51%),
-    radial-gradient(1px 1px at 130px 92px, rgba(255,255,255,.6) 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 74px 158px, rgba(255,255,255,.7) 50%, transparent 51%),
-    radial-gradient(1px 1px at 196px 44px, rgba(255,255,255,.5) 50%, transparent 51%),
-    radial-gradient(1.6px 1.6px at 322px 122px, rgba(255,255,255,.8) 50%, transparent 51%),
-    radial-gradient(1px 1px at 262px 204px, rgba(255,255,255,.45) 50%, transparent 51%),
-    radial-gradient(1.2px 1.2px at 356px 30px, rgba(255,255,255,.55) 50%, transparent 51%),
-    radial-gradient(640px 320px at 88% -6%, rgba(255,122,26,.16), transparent 70%),
-    radial-gradient(520px 280px at 6% -4%, rgba(96,128,255,.09), transparent 70%);
-  background-size:380px 240px,380px 240px,380px 240px,380px 240px,380px 240px,380px 240px,380px 240px,100% 100%,100% 100%;
-  background-repeat:repeat,repeat,repeat,repeat,repeat,repeat,repeat,no-repeat,no-repeat;
+  background:transparent;
+}
+body::before {
+  content:''; position:fixed; inset:-8%; z-index:-2; pointer-events:none;
+  background:url('studio-bg.jpg') center/cover no-repeat #06070c;
+  animation:studioDrift 60s ease-in-out infinite alternate;
+  will-change:transform;
+}
+body::after {
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(640px 320px at 88% -6%, rgba(255,122,26,.18), transparent 70%),
+    radial-gradient(520px 280px at 6% -4%, rgba(96,128,255,.10), transparent 70%),
+    linear-gradient(180deg, rgba(6,7,12,.78) 0%, rgba(6,7,12,.62) 35%, rgba(6,7,12,.70) 70%, rgba(6,7,12,.88) 100%);
+}
+@keyframes studioDrift {
+  from { transform:scale(1) translate3d(0,0,0); }
+  to { transform:scale(1.08) translate3d(-1.4%,-1.8%,0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation:none; }
 }
 a { color:#ff7a1a; text-decoration:none; }
 .eyebrow { color:#ff7a1a; letter-spacing:.22em; text-transform:uppercase; font-size:12px; font-weight:600; }
